@@ -8,6 +8,10 @@ export default {
       },
       colors: {
         'amazon-blue': '#131921',
+        'searchIcon': '#cd9042'
+      },
+      width: {
+        680: "680px",
       },
     },
   },
