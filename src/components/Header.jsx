@@ -1,73 +1,56 @@
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-
 function Header() {
   return (
-    <div className=" h-20 flex items-center bg-[#131921] sticky top-0 z-0 w-full">
-      <div className="relative inline-block p-2">
-        <img
-          src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-          className=" w-auto h-10 object-contain mx-5 mt-4"
-        />
-        <div className="absolute inset-0 border border-white rounded-sm opacity-0 hover:opacity-100 cursor-pointer"></div>
-      </div>
-
-      <div className="relative inline-block p-2">
-        <div className=" pl-4 flex">
-          <div className=" flex flex-col ml-2 mr-0 text-white pl-10 mt-5">
-            <LocationOnOutlinedIcon sx={{ color: "#fff", fontSize: 28 }} />
-          </div>
-          <div className=" flex flex-col mr-2 text-white pr-24">
-            <span className=" text-base">Address</span>
-            <span className=" font-bold text-lg items-center">
-              Add Location
-            </span>
-          </div>
-          <div className="absolute inset-0 border border-white rounded-sm opacity-0 hover:opacity-100 cursor-pointer"></div>
+    <div className=" h-20 flex items-center bg-[#131921] sticky top-0 z-0 w-full p-4">
+      {/* Amazon Icon */}
+      <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
+        <div className=" flex h-12 w-full ">
+          <img src="https://pngimg.com/uploads/amazon/amazon_PNG25.png" />
         </div>
       </div>
 
-      <div className=" flex items-center rounded-3xl ml-2">
-        <input
-          type="text"
-          className=" h-11 !important p-3 border-none w-[680px] rounded-l-lg"
-          placeholder="Search...."
-        />
-        <SearchOutlinedIcon
-          sx={{ fontSize: 45 }}
-          className=" p-1 bg-[#cd9042] rounded-r-lg"
-        />
+      {/* Loction */}
+
+      <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
+        <div className=" flex h-12 w-full items-center flex-col ">
+          <span className=" text-base w-5 text-gray-300">Location</span>
+          <span className=" text-lg font-bold text-white flex">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+              />
+            </svg>
+            Add Location
+          </span>
+        </div>
       </div>
 
-      <div className="relative inline-block p-2 ml-2">
-        <div className=" flex">
-          <div className=" flex flex-col ml-2 mr-2 text-white px-9">
-            <span className=" text-base">Hello, sign in</span>
-            <span className=" font-bold text-lg">Account & Lists</span>
-          </div>
-        </div>
-        <div className="absolute inset-0 border border-white rounded-sm opacity-0 hover:opacity-100 cursor-pointer"></div>
-      </div>
+      {/* searchbar */}
 
-      <div className="relative inline-block p-2">
-        <div className=" flex flex-col ml-2 mr-2 text-white">
-          <span className=" text-base">Returns</span>
-          <span className=" font-bold text-lg">& Orders</span>
-        </div>
-        <div className="absolute inset-0 border border-white rounded-sm opacity-0 hover:opacity-100 cursor-pointer"></div>
-      </div>
-
-      <div className="relative inline-block p-1">
-        <div className="flex items-center mx-3">
-          <div className="mr-8 p-3">
-            <ShoppingCartOutlinedIcon sx={{ color: "#fff", fontSize: 37 }} />
+      <div className="flex justify-between py-2 px-4">
+        <div className=" flex h-12 w-full items-center">
+          <div className=" bg-gray-200 flex p-3 rounded-l-lg">
+            <select>
+              <option value=''>All</option>
+              <option value="All categories">All categories</option>
+              <option value="All categories">All categories</option>
+            </select>
           </div>
-          <div className="absolute top-0 right-12">
-            <span className="text-xl text-white font-semibold">0</span>
-          </div>
+          <input type="text" className=" w-680 h-12" />
         </div>
-        <div className="absolute inset-0 border border-white rounded-sm opacity-0 hover:opacity-100 cursor-pointer"></div>
       </div>
     </div>
   );

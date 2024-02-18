@@ -11,7 +11,11 @@ export default {
         'searchIcon': '#cd9042'
       },
       width: {
-        680: "680px",
+        680: "43rem",
+        5 : '5.5rem'
+      },
+      marginTop: {
+        2 : '2px'
       },
     },
   },
