@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div className=" h-20 flex items-center bg-[#131921] sticky top-0 z-0 w-full p-4">
+    <div className=" h-20 flex items-center justify-between bg-[#131921] sticky top-0 z-0 w-full p-4">
       {/* Amazon Icon */}
       <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
         <div className=" flex h-12 w-full ">
@@ -10,7 +10,7 @@ function Header() {
 
       {/* Loction */}
 
-      <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
+      <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm hidden md:flex sm:flex">
         <div className=" flex h-12 w-full items-center flex-col ">
           <span className=" text-base w-5 text-gray-300">Location</span>
           <span className=" text-lg font-bold text-white flex">
@@ -40,16 +40,73 @@ function Header() {
 
       {/* searchbar */}
 
-      <div className="flex justify-between py-2 px-4">
+      <div className="flex justify-between py-2 px-4 w-2/4">
         <div className=" flex h-12 w-full items-center">
-          <div className=" bg-gray-200 flex p-3 rounded-l-lg">
-            <select>
-              <option value=''>All</option>
-              <option value="All categories">All categories</option>
-              <option value="All categories">All categories</option>
-            </select>
+          <input
+            type="text"
+            className=" w-full h-12"
+            placeholder="  Search..."
+          />
+          <div className="bg-[#cd9042] p-3 rounded-r-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
           </div>
-          <input type="text" className=" w-680 h-12" />
+        </div>
+      </div>
+
+      {/* Sign in */}
+      <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
+        <div className=" flex h-12 w-full flex-col">
+          <span className=" text-base text-gray-300">Hello , sign in</span>
+          <span className=" text-lg font-bold text-white flex">
+            Account & Lists
+          </span>
+        </div>
+      </div>
+
+      {/* Return & order */}
+      <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
+        <div className=" flex h-12 w-full flex-col">
+          <span className=" text-base text-gray-300">Returns</span>
+          <span className=" text-lg font-bold text-white flex">& Orders</span>
+        </div>
+      </div>
+
+      {/* Cart */}
+      <div className="flex py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
+        <div className=" flex h-12 w-full">
+        <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-12 h-12 text-white"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+              />
+            </svg>
+            <span className=" text-lg font-bold text-white">
+            0
+          </span>
+          <span className=" text-lg font-bold text-white mt-5">
+            Cart
+          </span>
         </div>
       </div>
     </div>
