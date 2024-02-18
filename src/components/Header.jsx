@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div className=" h-20 flex items-center justify-between bg-[#131921] sticky top-0 z-0 w-full p-4">
+    <div className=" h-20 flex items-center justify-between bg-[#131921] sticky top-0 z-0 w-full">
       {/* Amazon Icon */}
       <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
         <div className=" flex h-12 w-full ">
@@ -10,10 +10,10 @@ function Header() {
 
       {/* Loction */}
 
-      <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm hidden md:flex sm:flex">
+      <div className="flex justify-between py-2 px-4 hover:border border-white cursor-pointer rounded-sm">
         <div className=" flex h-12 w-full items-center flex-col ">
           <span className=" text-base w-5 text-gray-300">Location</span>
-          <span className=" text-lg font-bold text-white flex">
+          <span className=" text-lg font-bold text-white flex w-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
