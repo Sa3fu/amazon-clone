@@ -173,7 +173,8 @@ function Header() {
         </div>
       </div>
 
-      <div className="flex">
+      {/* Cart */}
+      <div className="flex pr-2">
         <div className="flex gap-2 justify-between w-full hover:border border-white cursor-pointer rounded-sm px-3 py-1">
           <div className="flex h-10">
             <svg
