@@ -7,17 +7,17 @@ export default {
         60: "60px",
       },
       colors: {
-        'amazon-blue': '#131921',
-        'searchIcon': '#cd9042'
+        "amazon-blue": "#131921",
+        searchIcon: "#cd9042",
       },
       width: {
         680: "43rem",
-        5 : '5.5rem'
+        5: "5.5rem",
       },
       marginTop: {
-        2 : '2px'
+        2: "2px",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-gradient-mask-image")],
 };
