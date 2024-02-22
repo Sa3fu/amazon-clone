@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SearchIcon from "@mui/icons-material/Search";
@@ -7,7 +7,15 @@ import { allItems } from "../constants";
 import HeaderBottom from "./HeaderBottom";
 
 function Header() {
+  const ref = useRef();
   const [showAll, setShowAll] = useState(false);
+  useEffect(()=>{
+    document.body.addEventListener("click",(e)=>{
+      if(e.target.contains(ref.current)){
+        setShowAll(false)
+      }
+    })
+  },[]);
 
   return (
     <div className="w-full">
@@ -33,12 +41,13 @@ function Header() {
         {/* Search bar */}
         <div className="h-10 rounded-md flex flex-grow relative">
           <span
+            ref={ref}
             onClick={() => setShowAll(!showAll)}
             className="w-14 h-full bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer 
           duration-300 text-sm text-amazon_blue font-titleFont flex items-center
           justify-center rounded-tl-md rounded-bl-md"
           >
-            All <sapn></sapn>
+            All <span></span>
             <KeyboardArrowDownIcon sx={{ fontSize: "16px" }} />
           </span>
           {showAll && (
