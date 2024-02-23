@@ -1,5 +1,13 @@
 import React from "react";
 import Slider from "react-slick";
+import {
+  bannerimg1,
+  bannerimg2,
+  bannerimg3,
+  bannerimg4,
+  bannerimg5,
+  bannerimg6,
+} from "../assets";
 
 function Banner() {
   var settings = {
@@ -11,11 +19,30 @@ function Banner() {
     arrows: true,
   };
   return (
-    <Slider {...settings}>
-      <div>
-        <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Biss_2023/BISS_GW/GWNEW/GWNEW2/GW_PC_1500x600._CB572878474_.jpg" />
+    <div className="w-full overflow-hidden">
+      <div className="w-full h-full relative">
+        <Slider {...settings}>
+          <div>
+            <img src={bannerimg1} alt="bannerImg1" />
+          </div>
+          <div>
+            <img src={bannerimg2} alt="bannerImg2" />
+          </div>
+          <div>
+            <img src={bannerimg3} alt="bannerImg3" />
+          </div>
+          <div>
+            <img src={bannerimg4} alt="bannerImg4" />
+          </div>
+          <div>
+            <img src={bannerimg5} alt="bannerImg5" />
+          </div>
+          <div>
+            <img src={bannerimg6} alt="bannerImg6" />
+          </div>
+        </Slider>
       </div>
-    </Slider>
+    </div>
   );
 }
 
