@@ -42,9 +42,9 @@ function FooterMiddle() {
         </div>
       </div>
       <div className="flex justify-center">
-        <ul className="flex flex-wrap justify-center gap-3 p-0 inline w-3/4 text-sm text-gray-300">
+        <ul className="flex flex-wrap justify-center gap-3 p-0 inline w-4/6 text-gray-300">
           {countries.map((Country) => (
-            <li key={Country._id} className="footerLink">
+            <li key={Country._id} className="footerLink text-xs">
               {Country.name}
             </li>
           ))}
