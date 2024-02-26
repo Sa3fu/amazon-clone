@@ -40,3 +40,62 @@ export const allItems = [
     title: "Audible Audiobooks",
   },
 ];
+
+export const middleList = [
+  {
+    _id: 2221,
+    title: "Get to Know Us",
+    ListItem: [
+      {
+        _id: "001",
+        ListData: ["About Us", "Careers", "Press Releases", "Amazon Science"],
+      },
+    ],
+  },
+  {
+    _id: 2222,
+    title: "Connect with Us",
+    ListItem: [
+      {
+        _id: "002",
+        ListData: ["Facebook", "Twitter", "Instagram"],
+      },
+    ],
+  },
+  {
+    _id: 2223,
+    title: "Make Money with Us",
+    ListItem: [
+      {
+        _id: "003",
+        ListData: [
+          "Sell on Amazon",
+          "Sell under Amazon Accelerator",
+          "Protect and Bulid Your Brand",
+          "Amazon Global Selling",
+          "Become an Affiliate",
+          "Fulfilment by Amazon",
+          "Advertise Your Products",
+          "Amazon Pay on Merchants",
+        ],
+      },
+    ],
+  },
+  {
+    _id: 2224,
+    title: "Let Us Help You",
+    ListItem: [
+      {
+        _id: "004",
+        ListData: [
+          "Covid-19 and Amazon",
+          "Your Account",
+          "Returns Center",
+          "100% Purchase Protection",
+          "Amazon App Download",
+          "Help",
+        ],
+      },
+    ],
+  },
+];
