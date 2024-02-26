@@ -99,3 +99,23 @@ export const middleList = [
     ],
   },
 ];
+
+export const countries = [
+  { _id: 1, name: "Australia" },
+  { _id: 2, name: "Brazil" },
+  { _id: 3, name: "Canda" },
+  { _id: 4, name: "China" },
+  { _id: 5, name: "France" },
+  { _id: 6, name: "Germany" },
+  { _id: 7, name: "Italy" },
+  { _id: 8, name: "Japan" },
+  { _id: 9, name: "Mexico" },
+  { _id: 10, name: "Netherlands" },
+  { _id: 11, name: "Poland" },
+  { _id: 12, name: "Singapore" },
+  { _id: 13, name: "Spain" },
+  { _id: 14, name: "Turkey" },
+  { _id: 15, name: "United Arab Emiraties" },
+  { _id: 16, name: "United Kingdom" },
+  { _id: 17, name: "United State" },
+];

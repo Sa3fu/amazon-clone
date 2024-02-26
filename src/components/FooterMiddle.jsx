@@ -1,5 +1,5 @@
 import React from "react";
-import { middleList } from "../constants";
+import { countries, middleList } from "../constants";
 import FooterMiddleList from "./FooterMiddleList";
 
 function FooterMiddle() {
@@ -40,6 +40,15 @@ function FooterMiddle() {
             English
           </p>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <ul className="flex flex-wrap justify-center gap-3 p-0 inline w-3/4 text-sm text-gray-300">
+          {countries.map((Country) => (
+            <li key={Country._id} className="footerLink">
+              {Country.name}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
