@@ -115,7 +115,7 @@ export const countries = [
   { _id: 12, name: "Singapore" },
   { _id: 13, name: "Spain" },
   { _id: 14, name: "Turkey" },
-  { _id: 15, name: "United Arab Emiraties" },
+  { _id: 15, name: "United Arab Emirates" },
   { _id: 16, name: "United Kingdom" },
   { _id: 17, name: "United State" },
 ];
