@@ -119,3 +119,48 @@ export const countries = [
   { _id: 16, name: "United Kingdom" },
   { _id: 17, name: "United State" },
 ];
+
+export const footerBottomItems = [
+  {
+    _id: 1220,
+    title: "AbeBooks",
+    des: "Books, art & collectibles",
+  },
+
+  {
+    _id: 1223,
+    title: "Amazon Web Services",
+    des: "Scalable Cloud Computing Services",
+  },
+
+  {
+    _id: 1225,
+    title: "Audbile",
+    des: "Download Audio Books",
+  },
+  {
+    _id: 1226,
+    title: "IMDb",
+    des: "Movies, TV & Celebrities",
+  },
+  {
+    _id: 1221,
+    title: "Shopbop",
+    des: "Designer Fashion Brands",
+  },
+  {
+    _id: 1224,
+    title: "Amazon Business",
+    des: "Everything For Your Business",
+  },
+  {
+    _id: 1228,
+    title: "Prime Now",
+    des: "2-Hour Delivery on Everyday Items",
+  },
+  {
+    _id: 1227,
+    title: "Amazon Prime Music",
+    des: "100 million songs, ad-free Over 15 million podcast episodes",
+  },
+];
