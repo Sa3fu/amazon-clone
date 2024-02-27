@@ -18,7 +18,7 @@ function Header() {
   },[]);
 
   return (
-    <div className="w-full">
+    <div className="w-full sticky top-0 z-10">
       <div className=" w-full bg-amazon_blue text-white px-4 py-1 flex items-center gap-4">
         {/* Image/Icon */}
         <div className="headerHover">
