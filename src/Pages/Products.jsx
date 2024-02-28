@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 
 function Products() {
   const data = useLoaderData();
@@ -31,8 +32,17 @@ function Products() {
               </p>
             </div>
             <div>
-              <p className="line-clamp-3 text-sm">{item.description}</p>
+              <p className="line-clamp-3 text-sm mb-1">{item.description}</p>
+              <div className="text-yellow-500">
+                <StarOutlinedIcon/>
+                <StarOutlinedIcon/>
+                <StarOutlinedIcon/>
+                <StarOutlinedIcon/>
+              </div>
             </div>
+            <button className="w-full font-titleFont font-medium text-base bg-gradient-to-tr 
+            from-yellow-500 to-yellow-200 hover:border-yellow-700 active:bg-gradient-to-bl active:from-yellow-400
+            active:to-yellow-500 duration-200 py-1.5 rounded-md mt-3">Add to Cart</button>
           </div>
         </div>
       ))}
