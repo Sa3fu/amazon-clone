@@ -6,7 +6,9 @@ function Home() {
   return (
     <div>
       <Banner />
-      <Products />
+      <div className="w-full -mt-40">
+        <Products />
+      </div>
     </div>
   );
 }
