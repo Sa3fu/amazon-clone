@@ -5,17 +5,18 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { allItems } from "../constants";
 import HeaderBottom from "./HeaderBottom";
+import { Link } from "react-router-dom";
 
 function Header() {
   const ref = useRef();
   const [showAll, setShowAll] = useState(false);
-  useEffect(()=>{
-    document.body.addEventListener("click",(e)=>{
-      if(e.target.contains(ref.current)){
-        setShowAll(false)
+  useEffect(() => {
+    document.body.addEventListener("click", (e) => {
+      if (e.target.contains(ref.current)) {
+        setShowAll(false);
       }
-    })
-  },[]);
+    });
+  }, []);
 
   return (
     <div className="w-full sticky top-0 z-50">
@@ -78,15 +79,19 @@ function Header() {
         </div>
 
         {/* Sign in  */}
-        <div className="flex flex-col items-start justify-center headerHover ">
-          <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">Hello , sign in</p>
-          <p className="text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex">
-            Accounts & Lists
-            <span>
-              <KeyboardArrowDownIcon sx={{ fontSize: "16px" }} />
-            </span>
-          </p>
-        </div>
+        <Link to="/signin">
+          <div className="flex flex-col items-start justify-center headerHover ">
+            <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">
+              Hello , sign in
+            </p>
+            <p className="text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex">
+              Accounts & Lists
+              <span>
+                <KeyboardArrowDownIcon sx={{ fontSize: "16px" }} />
+              </span>
+            </p>
+          </div>
+        </Link>
 
         {/* Order and return */}
         <div className="hidden mdl:flex flex-col items-start justify-center headerHover">

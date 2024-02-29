@@ -3,7 +3,7 @@ import { footerBottomItems } from "../constants";
 
 function FooterBottom() {
   return (
-    <div className="w-full bg-footerBottom py-8">
+    <div className="hidden w-full bg-footerBottom py-8 md:inline-block md:px-4">
       <div className="max-w-5xl mx-auto">
         <div className="w-full grid grid-cols-4 gap-3 place-content-center text-gray-400">
           {footerBottomItems.map((item) => (

@@ -11,7 +11,8 @@ function FooterMiddle() {
       {/* top */}
       <div className="w-full border-b-[1px] border-gray-500 py-10">
         <div className="max-w-5xl mx-auto text-gray-300">
-          <div className="w-full grid grid-cols-4 place-items-center items-start">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 
+          md:place-items-center md:items-start">
             {middleList.map((item) => (
               <FooterMiddleList
                 key={item._id}
@@ -27,7 +28,7 @@ function FooterMiddle() {
       <div className="w-full flex gap-6 items-center justify-center py-6">
         <div>
           <img
-            className="w-20 pt-1"
+            className="hidden mdl:w-20 pt-1"
             src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
             alt="logo"
           />
@@ -41,7 +42,7 @@ function FooterMiddle() {
           </p>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="mdl:flex justify-center hidden">
         <ul className="flex flex-wrap justify-center gap-3 p-0 inline w-4/6 text-gray-300 mb-6">
           {countries.map((Country) => (
             <li key={Country._id} className="footerLink text-xs">
