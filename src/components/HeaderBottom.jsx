@@ -27,13 +27,13 @@ function HeaderBottom() {
           <MenuOutlinedIcon />
           All
         </li>
-        <li className="headerHover">Amazon miniTV</li>
-        <li className="headerHover">Sell</li>
-        <li className="headerHover">Best Sellers</li>
-        <li className="headerHover">Mobile</li>
-        <li className="headerHover">Todays Deals</li>
-        <li className="headerHover">Electronics</li>
-        <li className="headerHover">Customer Service</li>
+        <li className="headerHover hidden md:inline-flex">Amazon miniTV</li>
+        <li className="headerHover hidden md:inline-flex">Sell</li>
+        <li className="headerHover hidden md:inline-flex">Best Sellers</li>
+        <li className="headerHover hidden md:inline-flex">Mobile</li>
+        <li className="headerHover hidden md:inline-flex">Todays Deals</li>
+        <li className="headerHover hidden md:inline-flex">Electronics</li>
+        <li className="headerHover hidden mdl:inline-flex">Customer Service</li>
       </ul>
 
       {/* Side Navbar */}
@@ -46,7 +46,7 @@ function HeaderBottom() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -500, opacity: 0, transition: { duration: 0.4 } }}
               transition={{ duration: 0.4 }}
-              className="w-[350px] h-full bg-white border border-black overflow-y-scroll"
+              className="w-[80%] md:w-[350px] h-full bg-white border border-black overflow-y-scroll"
             >
               <div
                 className="w-full bg-amazon_light text-white py-2 px-6 flex items-center
@@ -89,7 +89,7 @@ function HeaderBottom() {
               />
               <span
                 onClick={() => setSidebar(false)}
-                className="cursor-pointer absolute top-0 left-[360px] w-10 h-10 text-black
+                className="cursor-pointer absolute top-0 left-[82%] md:left-[360px] w-10 h-10 text-black
             flex items-center justify-center"
               >
                 <CloseOutlinedIcon sx={{ fontSize: "32px", color: "white" }} />

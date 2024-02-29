@@ -28,7 +28,7 @@ function Header() {
           />
         </div>
         {/* Location */}
-        <div className="headerHover">
+        <div className="headerHover hidden mdl:inline-flex">
           <PlaceOutlinedIcon sx={{ fontSize: "20px" }} />
           <p className="text-sm text-lightText font-light flex flex-col">
             Deliver Address
@@ -39,7 +39,7 @@ function Header() {
         </div>
 
         {/* Search bar */}
-        <div className="h-10 rounded-md flex flex-grow relative">
+        <div className="h-10 rounded-md hidden lgl:flex flex-grow relative">
           <span
             ref={ref}
             onClick={() => setShowAll(!showAll)}
@@ -78,9 +78,9 @@ function Header() {
         </div>
 
         {/* Sign in  */}
-        <div className="flex flex-col items-start justify-center headerHover">
-          <p className="text-xs text-lightText font-light">Hello , sign in</p>
-          <p className="text-sm font-semibold -mt-1 text-whiteText">
+        <div className="flex flex-col items-start justify-center headerHover ">
+          <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">Hello , sign in</p>
+          <p className="text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex">
             Accounts & Lists
             <span>
               <KeyboardArrowDownIcon sx={{ fontSize: "16px" }} />
@@ -89,7 +89,7 @@ function Header() {
         </div>
 
         {/* Order and return */}
-        <div className="flex flex-col items-start justify-center headerHover">
+        <div className="hidden mdl:flex flex-col items-start justify-center headerHover">
           <p className="text-xs text-lightText font-light">Returns</p>
           <p className="text-sm font-semibold -mt-1 text-whiteText">& Orders</p>
         </div>
