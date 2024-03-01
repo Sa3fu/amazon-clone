@@ -10,7 +10,14 @@ export const amazonSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      state.product.push(action.payload);
+      const item = state.product.find(
+        (item) => item.id === action.payload.id
+      );
+      if (item) {
+        item.quantity += action.payload.quantity;
+      } else {
+        state.product.push(action.payload);
+      }
     },
   },
 });

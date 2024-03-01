@@ -6,8 +6,11 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { allItems } from "../constants";
 import HeaderBottom from "./HeaderBottom";
 import { Link } from "react-router-dom";
+import {useSelector} from "react-redux"
 
 function Header() {
+
+  const products = useSelector((state)=>state.amazonReducer.product)
   const ref = useRef();
   const [showAll, setShowAll] = useState(false);
   useEffect(() => {
@@ -108,7 +111,7 @@ function Header() {
               className="absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847]
             text-amazon_blue rounded-full flex justify-center items-center"
             >
-              0
+              {products.length > 0 ? products.length : 0}
             </span>
           </p>
         </div>
