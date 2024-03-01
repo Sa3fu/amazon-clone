@@ -10,7 +10,7 @@ export const amazonSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      state.product = action.payload;
+      state.product.push(action.payload);
     },
   },
 });
