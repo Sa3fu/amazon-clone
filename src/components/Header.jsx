@@ -6,11 +6,10 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { allItems } from "../constants";
 import HeaderBottom from "./HeaderBottom";
 import { Link } from "react-router-dom";
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux";
 
 function Header() {
-
-  const products = useSelector((state)=>state.amazonReducer.product)
+  const products = useSelector((state) => state.amazonReducer.product);
   const ref = useRef();
   const [showAll, setShowAll] = useState(false);
   useEffect(() => {
@@ -25,12 +24,14 @@ function Header() {
     <div className="w-full sticky top-0 z-50">
       <div className=" w-full bg-amazon_blue text-white px-4 py-1 flex items-center gap-4">
         {/* Image/Icon */}
-        <div className="headerHover">
-          <img
-            className="w-24 mt-2"
-            src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-          />
-        </div>
+        <Link to="/">
+          <div className="headerHover">
+            <img
+              className="w-24 mt-2"
+              src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+            />
+          </div>
+        </Link>
         {/* Location */}
         <div className="headerHover hidden mdl:inline-flex">
           <PlaceOutlinedIcon sx={{ fontSize: "20px" }} />
@@ -103,18 +104,20 @@ function Header() {
         </div>
 
         {/* Cart */}
-        <div className="flex items-start justify-center headerHover relative">
-          <ShoppingCartOutlinedIcon />
-          <p className="text-xs font-semibold mt-3 text-whiteText">
-            Cart
-            <span
-              className="absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847]
+        <Link to="/cart">
+          <div className="flex items-start justify-center headerHover relative">
+            <ShoppingCartOutlinedIcon />
+            <p className="text-xs font-semibold mt-3 text-whiteText">
+              Cart
+              <span
+                className="absolute text-xs -top-1 left-6 font-semibold p-1 h-4 bg-[#f3a847]
             text-amazon_blue rounded-full flex justify-center items-center"
-            >
-              {products.length > 0 ? products.length : 0}
-            </span>
-          </p>
-        </div>
+              >
+                {products.length > 0 ? products.length : 0}
+              </span>
+            </p>
+          </div>
+        </Link>
       </div>
 
       {/* Header Bottom */}

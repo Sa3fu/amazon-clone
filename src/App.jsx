@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Home from "./Pages/Home";
 import { productsData } from "./api/api";
 import Signin from "./Pages/Signin";
+import Cart from "./Pages/Cart";
 
 const Layout = () => {
   return (
@@ -27,7 +28,8 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} loader={productsData}></Route>
-        <Route path="/signin" element={<Signin/>}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/signin" element={<Signin />}></Route>
       </Route>
     )
   );
