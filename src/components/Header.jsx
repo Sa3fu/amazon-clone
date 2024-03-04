@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Header() {
-  const products = useSelector((state) => state.amazonReducer.product);
+  const products = useSelector((state) => state.product);
   const ref = useRef();
   const [showAll, setShowAll] = useState(false);
   useEffect(() => {

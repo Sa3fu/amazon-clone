@@ -5,7 +5,7 @@ import { decrementQty, deleteItem, incrementQty, resetCart } from "../redux/amaz
 
 function Cart() {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.amazonReducer.product);
+  const products = useSelector((state) => state.product);
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     let Total = 0;
