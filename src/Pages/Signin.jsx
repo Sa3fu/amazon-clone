@@ -1,4 +1,5 @@
 import React from "react";
+import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 
 function Signin() {
   return (
@@ -47,8 +48,55 @@ function Signin() {
               <span className="text-blue-600">Conditions of use</span> and{" "}
               <span className="text-blue-600">Privacy Notice.</span>
             </p>
+            <p className="text-xs text-gray-600 mt-4 cursor-pointer group">
+              <ArrowRightOutlinedIcon />
+              <span
+                className="text-blue-600 group-hover:text-orange-700 group-hover:underline
+              underline-offset-1"
+              >
+                Need Help?
+              </span>
+            </p>
           </div>
+          <p className="w-full text-xs text-gray-600 mt-4 flex items-center">
+            <span className="w-1/3 h-[1px] bg-zinc-400 inline-flex"></span>
+            <span className="w-1/3 text-center">New to Amazon?</span>
+            <span className="w-1/3 h-[1px] bg-zinc-400 inline-flex"></span>
+          </p>
+          <button
+            className="w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t
+          from-slate-200 to-slate-100 hover:bg-gradient-to-b border border-zinc-400 
+          active:border-yellow-800 active:shadow-amazonInput"
+          >
+            Create your Amazon Account
+          </button>
         </form>
+      </div>
+      <div
+        className="w-full bg-gradient-to-t from-white via-white to-zinc-200 flex flex-col gap-4
+      justify-center items-center py-10"
+      >
+        <div className="flex items-center gap-6">
+          <p
+            className="text-xs text-blue-600 hover:text-orange-600 hover:underline 
+          underline-offset-1 cursor-pointer duration-100"
+          >
+            Conditions of use{" "}
+          </p>
+          <p
+            className="text-xs text-blue-600 hover:text-orange-600 hover:underline 
+          underline-offset-1 cursor-pointer duration-100"
+          >
+            Privacy Notice{" "}
+          </p>
+          <p
+            className="text-xs text-blue-600 hover:text-orange-600 hover:underline 
+          underline-offset-1 cursor-pointer duration-100"
+          >
+            Conditions of use{" "}
+          </p>
+        </div>
+        <p className="text-xs text-gray-600">{"\u00a9"} 1996-2024, yourzone.com, Inc. or its affiliates</p>
       </div>
     </div>
   );
