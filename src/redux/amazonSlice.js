@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   product: [],
-  userInfo: [],
+  userInfo: null,
 };
 
 export const amazonSlice = createSlice({

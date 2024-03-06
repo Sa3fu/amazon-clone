@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import { Link } from "react-router-dom";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 
 function Registration() {
+  const auth = getAuth();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -72,7 +79,22 @@ function Registration() {
 
     if (Object.keys(formError).length === 0) {
       console.log(formData);
-      setFormData(initialFormData)
+      createUserWithEmailAndPassword(auth, formData.email, formData.password)
+        .then((userCredential) => {
+          updateProfile(auth.currentUser, {
+            displayName: formData.name,
+          });
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+      setFormData(initialFormData);
     }
   };
   return (
@@ -96,7 +118,7 @@ function Registration() {
                 <p className="text-sm font-medium">Your Name</p>
                 <input
                   onChange={handleChange}
-                  className="w-full lowercase py-1 border border-zinc-400 px-2 text-base
+                  className="w-full py-1 border border-zinc-400 px-2 text-base
                 rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput
                 duration-100"
                   type="text"
@@ -126,7 +148,7 @@ function Registration() {
                 <p className="text-sm font-medium">Password</p>
                 <input
                   onChange={handleChange}
-                  className="w-full lowercase py-1 border border-zinc-400 px-2 text-base
+                  className="w-full py-1 border border-zinc-400 px-2 text-base
                 rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput
                 duration-100"
                   type="password"
@@ -141,7 +163,7 @@ function Registration() {
                 <p className="text-sm font-medium">Re-enter Password</p>
                 <input
                   onChange={handleChange}
-                  className="w-full lowercase py-1 border border-zinc-400 px-2 text-base
+                  className="w-full py-1 border border-zinc-400 px-2 text-base
                 rounded-sm outline-none focus-within:border-[#e77600] focus-within:shadow-amazonInput
                 duration-100"
                   type="password"
@@ -152,6 +174,7 @@ function Registration() {
                   <p className="text-xs text-red-500">{error.retypePassword}</p>
                 )}
               </div>
+
               <button
                 type="submit"
                 className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t
