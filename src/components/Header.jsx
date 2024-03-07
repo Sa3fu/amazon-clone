@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { allItems } from "../constants";
 import HeaderBottom from "./HeaderBottom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,11 +14,13 @@ import { userLogout } from "../redux/amazonSlice";
 function Header() {
   const auth = getAuth();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const products = useSelector((state) => state.product);
   const userInfo = useSelector((state) => state.userInfo);
   const ref = useRef();
   const [showAll, setShowAll] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
       if (e.target.contains(ref.current)) {
@@ -30,11 +32,17 @@ function Header() {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-       dispatch(userLogout())
+        dispatch(userLogout());
       })
       .catch((error) => {
         // An error happened.
       });
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/?search=${searchQuery}`);
+    setSearchQuery("")
   };
 
   return (
@@ -61,7 +69,10 @@ function Header() {
         </div>
 
         {/* Search bar */}
-        <div className="h-10 rounded-md hidden lgl:flex flex-grow relative">
+        <form
+          onSubmit={handleSearch}
+          className="h-10 rounded-md hidden lgl:flex flex-grow relative"
+        >
           <span
             ref={ref}
             onClick={() => setShowAll(!showAll)}
@@ -93,11 +104,16 @@ function Header() {
             type="text"
             placeholder="Search Amazon"
             className="h-full text-base text-amazon_blue flex-grow outline-none border-none px-3"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <span className="w-12 h-full flex items-center justify-center bg-amazon_yellow hover:bg-[#f3a847] duration-300 text-amazon_blue cursor-pointer rounded-tr-md rounded-br-md">
+          <button
+            type="submit"
+            className="w-12 h-full flex items-center justify-center bg-amazon_yellow hover:bg-[#f3a847] duration-300 text-amazon_blue cursor-pointer rounded-tr-md rounded-br-md"
+          >
             <SearchIcon />
-          </span>
-        </div>
+          </button>
+        </form>
 
         {/* Sign in  */}
         <Link to="/signin">
