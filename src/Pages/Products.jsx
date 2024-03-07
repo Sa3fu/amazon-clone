@@ -10,7 +10,7 @@ function Products() {
   return (
     <div
       className="max-width-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 
-    gap-6 xl:gap-10 px-4"
+    gap-6 xl:gap-10 px-4 mb-6"
     >
       {produtData.map((item) => (
         <div

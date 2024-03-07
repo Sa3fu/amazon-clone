@@ -4,8 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { RotatingLines } from "react-loader-spinner";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../redux/amazonSlice";
 
 function Signin() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const auth = getAuth();
@@ -60,7 +63,13 @@ function Signin() {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
+          dispatch(
+            setUserInfo({
+              _id: user.uid,
+              userName: user.displayName,
+              email: user.email,
+            })
+          );
           setLoading(false);
           setSuccessMessage("Signed in successfully");
           setTimeout(() => {
@@ -74,9 +83,9 @@ function Signin() {
             setLoading(false);
             setFirebaseErr("Inavlid Email or Password");
           }
-          console.log(errorCode);
         });
       setFormdata(initialFormData);
+      setFirebaseErr("");
     }
   };
   return (

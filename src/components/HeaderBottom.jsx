@@ -5,8 +5,10 @@ import SideNavContent from "./SideNavContent";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import { useSelector } from "react-redux";
 
 function HeaderBottom() {
+  const userInfo = useSelector((state) => state.userInfo);
   const ref = useRef();
   const [sidebar, setSidebar] = useState(false);
   useEffect(() => {
@@ -53,9 +55,15 @@ function HeaderBottom() {
               gap-4 "
               >
                 <AccountCircleIcon />
-                <h3 className="font-titleFont font-bold text-lg tracking-wide sticky top-0">
-                  Hello, Sign in
+                {userInfo ? (
+                  <h3 className="font-titleFont font-bold text-lg tracking-wide sticky top-0">
+                  {userInfo.userName}
                 </h3>
+                ) : (
+                  <h3 className="font-titleFont font-bold text-lg tracking-wide sticky top-0">
+                    Hello, Sign in
+                  </h3>
+                )}
               </div>
               <SideNavContent
                 title="Trending"

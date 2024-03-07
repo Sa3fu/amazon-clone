@@ -6,10 +6,17 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { allItems } from "../constants";
 import HeaderBottom from "./HeaderBottom";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { getAuth, signOut } from "firebase/auth";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogout } from "../redux/amazonSlice";
 
 function Header() {
+  const auth = getAuth();
+  const dispatch = useDispatch();
+
   const products = useSelector((state) => state.product);
+  const userInfo = useSelector((state) => state.userInfo);
   const ref = useRef();
   const [showAll, setShowAll] = useState(false);
   useEffect(() => {
@@ -19,6 +26,16 @@ function Header() {
       }
     });
   }, []);
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+       dispatch(userLogout())
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
 
   return (
     <div className="w-full sticky top-0 z-50">
@@ -85,9 +102,16 @@ function Header() {
         {/* Sign in  */}
         <Link to="/signin">
           <div className="flex flex-col items-start justify-center headerHover ">
-            <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">
-              Hello , sign in
-            </p>
+            {userInfo ? (
+              <p className="text-sm mdl:text-xs text-gray-100 mdl:text-lightText font-medium">
+                {userInfo.userName}
+              </p>
+            ) : (
+              <p className="text-sm mdl:text-xs text-white mdl:text-lightText font-light">
+                Hello , sign in
+              </p>
+            )}
+
             <p className="text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex">
               Accounts & Lists
               <span>
@@ -118,6 +142,18 @@ function Header() {
             </p>
           </div>
         </Link>
+
+        {userInfo && (
+          <div
+            onClick={handleLogout}
+            className="flex flex-col justify-center items-center headerHover relative"
+          >
+            <LogoutOutlinedIcon />
+            <p className="hidden mdl:inline-flex text-xs font-semibold text-whiteText">
+              Log out
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Header Bottom */}
