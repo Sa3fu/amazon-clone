@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { RotatingLines } from "react-loader-spinner";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -8,7 +10,12 @@ import {
 } from "firebase/auth";
 
 function Registration() {
+  const navigate = useNavigate();
   const auth = getAuth();
+  const [firebaseErr, setFirebaseErr] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -78,7 +85,7 @@ function Registration() {
     setError(formError);
 
     if (Object.keys(formError).length === 0) {
-      console.log(formData);
+      setLoading(true);
       createUserWithEmailAndPassword(auth, formData.email, formData.password)
         .then((userCredential) => {
           updateProfile(auth.currentUser, {
@@ -86,15 +93,23 @@ function Registration() {
           });
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          setLoading(false);
+          setSuccessMessage("Account Successfully created");
+          setTimeout(() => {
+            navigate("/signin");
+          }, 3000);
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
+          if (errorCode.includes("auth/email-already-in-use")) {
+            setLoading(false);
+            setFirebaseErr("Please Enter different email");
+          }
           // ..
         });
       setFormData(initialFormData);
+      setFirebaseErr("");
     }
   };
   return (
@@ -174,7 +189,11 @@ function Registration() {
                   <p className="text-xs text-red-500">{error.retypePassword}</p>
                 )}
               </div>
-
+              {firebaseErr && (
+                <p className="text-xs text-red-500 font-semibold">
+                  {firebaseErr}
+                </p>
+              )}
               <button
                 type="submit"
                 className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t
@@ -183,6 +202,34 @@ function Registration() {
               >
                 Continue
               </button>
+              {loading && (
+                <div className="flex justify-center">
+                  <RotatingLines
+                    visible={true}
+                    height="96"
+                    width="96"
+                    color="#febd69"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    ariaLabel="rotating-lines-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                  />
+                </div>
+              )}
+              {successMessage && (
+                <div>
+                  <motion.p
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-base font-titleFont font-semi-bold text-green-500 
+                     px-2 text-center"
+                  >
+                    {successMessage}
+                  </motion.p>
+                </div>
+              )}
             </div>
             <p className="text-xs text-black leading-4 mt-4">
               By creating an account, you agree to Amazon's{" "}

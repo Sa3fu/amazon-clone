@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { RotatingLines } from "react-loader-spinner";
 
 function Signin() {
+  const navigate = useNavigate();
+
+  const auth = getAuth();
+  const [loading, setLoading] = useState(false);
+  const [firebaseErr, setFirebaseErr] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
   const [formdata, setFormdata] = useState({
     email: "",
     password: "",
@@ -45,7 +55,27 @@ function Signin() {
     setError(formError);
 
     if (Object.keys(formError).length === 0) {
-      console.log(formdata);
+      setLoading(true);
+      signInWithEmailAndPassword(auth, formdata.email, formdata.password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          setLoading(false);
+          setSuccessMessage("Signed in successfully");
+          setTimeout(() => {
+            navigate("/");
+          }, 3000);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          if (errorCode.includes("auth/invalid-credential")) {
+            setLoading(false);
+            setFirebaseErr("Inavlid Email or Password");
+          }
+          console.log(errorCode);
+        });
       setFormdata(initialFormData);
     }
   };
@@ -96,6 +126,11 @@ function Signin() {
                   <p className="text-xs text-red-500">{error.password}</p>
                 )}
               </div>
+              {firebaseErr && (
+                <p className="text-xs text-red-500 font-semibold">
+                  {firebaseErr}
+                </p>
+              )}
               <button
                 type="submit"
                 className="w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t
@@ -104,6 +139,34 @@ function Signin() {
               >
                 Continue
               </button>
+              {loading && (
+                <div className="flex justify-center">
+                  <RotatingLines
+                    visible={true}
+                    height="96"
+                    width="96"
+                    color="#febd69"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    ariaLabel="rotating-lines-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                  />
+                </div>
+              )}
+              {successMessage && (
+                <div>
+                  <motion.p
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-base font-titleFont font-semi-bold text-green-500 
+                     px-2 text-center"
+                  >
+                    {successMessage}
+                  </motion.p>
+                </div>
+              )}
             </div>
             <p className="text-xs text-black leading-4 mt-4">
               By Continuing, you agree to Amazon's{" "}
