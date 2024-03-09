@@ -208,7 +208,7 @@ function Registration() {
                     visible={true}
                     height="96"
                     width="96"
-                    color="#febd69"
+                    color="#ffdf00"
                     strokeWidth="5"
                     animationDuration="0.75"
                     ariaLabel="rotating-lines-loading"
